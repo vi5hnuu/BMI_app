@@ -6,25 +6,23 @@ import '../constants.dart';
 class BottomButton extends StatelessWidget {
   final String buttonTitle;
   final VoidCallback onTap;
-  BottomButton({required this.buttonTitle,required this.onTap});
+  const BottomButton({Key? key, required this.buttonTitle,required this.onTap}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
-        child: Text(
-          this.buttonTitle,
-          style: kLargeButtonTextStyle,
-        ),
         alignment: Alignment.center,
         width: double.infinity,
         height: kBottomContainerHeight,
-        margin: EdgeInsets.symmetric(horizontal: 110.0,vertical: 10.0),
+        margin: const EdgeInsets.symmetric(horizontal: 110.0,vertical: 10.0),
         decoration: BoxDecoration(
           color: kBottomContainerColor,
           borderRadius: BorderRadius.circular(50.0),
         ),
+        child: Text(buttonTitle, style: kLargeButtonTextStyle),
       ),
-      onTap: this.onTap,
     );
   }
 }

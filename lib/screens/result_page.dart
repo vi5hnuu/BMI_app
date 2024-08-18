@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:mybmi/constants.dart';
 
@@ -10,13 +8,13 @@ class ResultPage extends StatelessWidget {
   final String bmiResult;
   final String resultText;
   final String intrepretation;
-  ResultPage({required this.bmiResult,required this.resultText,required this.intrepretation});
+  const ResultPage({Key? key, required this.bmiResult,required this.resultText,required this.intrepretation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI RESULT"),
+        title: const Text("BMI RESULT"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -25,10 +23,7 @@ class ResultPage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.center,
-              child: Text(
-                "YOUR RESULT",
-                style: kTitleTextStyle,
-              ),
+              child: const Text("YOUR RESULT", style: kTitleTextStyle),
             ),
           ),
           Expanded(
@@ -41,15 +36,15 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      this.resultText,
+                      resultText,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      this.bmiResult,
+                      bmiResult,
                       style: kBMITextStyle,
                     ),
                     Text(
-                      this.intrepretation,
+                      intrepretation,
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     )

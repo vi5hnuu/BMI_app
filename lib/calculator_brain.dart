@@ -1,41 +1,31 @@
 import 'dart:math';
 
-class CalculatorBrain{
+class UserBmi{
   final int height;
   final int weight;
-  double? _bmi;
-  CalculatorBrain({required this.height,required this.weight});
+  UserBmi({required this.height,required this.weight}):assert(height>0),assert(weight>0);
 
-  String calculateBMI(){
-    double bmi=weight/pow(height/100, 2);
-    _bmi=bmi;
-    return bmi.toStringAsFixed(1);
+  double get bmi{
+    return weight/pow(height/100, 2);
   }
 
-  String getResult(){
-    if(_bmi!=null){
-      if(_bmi!>=25)
-        return "Overweight";
-      else if(_bmi!>=18.5)
-        return "Normal";
-      else
-        return "Underweight";
-    }
-    else{
-      return "Unknown";
-    }
+  String getInterpretation({double? bmi}){
+    if(bmi==null) return "Please check the input data.";
+    if(bmi>=25)
+      return "You have a higher than normal body weight.Try to exercise more.";
+    else if(bmi>=18.5)
+      return "You have a normal body weight.\nGood job";
+    else
+      return "You have a lower than normal body weight.\nYou can eat a bit more.";
   }
 
-  String getIntrepretation(){
-    if(_bmi!=null){
-      if(_bmi!>=25)
-        return "You have a higher than normal body weight.Try to exercise more.";
-      else if(_bmi!>=18.5)
-        return "You have a normal body weight.\nGood job";
-      else
-        return "You have a lower than normal body weight.\nYou can eat a bit more.";
-    }else{
-      return "Please check the input data.";
-    }
+  String getWeightInterpretation({double? bmi}){
+    if(bmi==null) return "unknown";
+    if(bmi>=25)
+      return "Overweight";
+    else if(bmi!>=18.5)
+      return "Normal";
+    else
+      return "Underweight";
   }
 }

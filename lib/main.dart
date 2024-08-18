@@ -11,12 +11,13 @@ class BMICalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-          appBarTheme: AppBarTheme(color: Color(0xFF0A0E21),shadowColor: Colors.indigo[400]),
-          scaffoldBackgroundColor: Color(0xFF0A0E21),
+          appBarTheme: AppBarTheme(color: const Color(0xFF0A0E21),shadowColor: Colors.indigo[400]),
+          scaffoldBackgroundColor: const Color(0xFF0A0E21),
       ),
-      home: InputPage(),
+      home: const InputPage(),
     );
   }
 }
